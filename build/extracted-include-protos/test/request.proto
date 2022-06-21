@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.grpcproject";
+
+service Echo {
+
+  rpc Echo (EchoRequest) returns (EchoRequest) {}
+
+  rpc EchoClientStream (stream EchoRequest) returns (EchoRequest) {}
+
+  rpc EchoServerStream ( EchoRequest) returns (stream EchoRequest) {}
+
+  rpc EchoBothStream (stream EchoRequest) returns (stream EchoRequest) {}
+}
+
+message EchoRequest{
+  string subject = 1;
+}
